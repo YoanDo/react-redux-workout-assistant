@@ -1,16 +1,32 @@
 export const actionTypes = {
-    change_display_value: "CHANGE_DISPLAY",
-    change_operation: "CHANGE_OPERATION",
-    set_operand: "SET_OPERAND",
-    clear: "CLEAR",
-    set_operator: "SET_OPERATOR",
-    set_scale: "SET_SCALE"
+    toggle_runner: "TOGGLE_RUNNER",
+    one_more_round: "ONE_MORE_ROUND"
+    // change_display_value: "CHANGE_DISPLAY",
+    // change_operation: "CHANGE_OPERATION",
+    // set_operand: "SET_OPERAND",
+    // clear: "CLEAR",
+    // set_operator: "SET_OPERATOR",
+    // set_scale: "SET_SCALE",
 }
 
+export const toggle_runner = () => {
+    return{
+        type: actionTypes.toggle_runner
+    }
+}
+
+export const one_more_round = () => {
+    return{
+        type: actionTypes.one_more_round
+    }
+}
+
+
+
+//
 export const change_display_value = (display_value) => {
     return{
-        type: actionTypes.change_display_value,
-        display_value
+        type: actionTypes.change_display_value
     }
 }
 

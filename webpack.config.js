@@ -41,7 +41,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Calculator',
+            title: '⚡️Workout helper⚡️',
             minify: {
                 collapseWhitespace: false
             },

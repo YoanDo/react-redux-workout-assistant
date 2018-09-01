@@ -5,16 +5,30 @@ const defaultState = {
     serie:3,
     rest:30,
     loop:3,
+    round:0,
+    running: false,
 ////
-    display_value: 0,
-    display_scale: 1,
-    operation: null,
-    operand: 0,
-    operator: 0
+    // display_value: 0,
+    // display_scale: 1,
+    // operation: null,
+    // operand: 0,
+    // operator: 0
 };
 
 export default (state = defaultState, action) => {
     switch (action.type){
+        case actionTypes.toggle_runner:
+          return {
+              ...state,
+              running: !state.running,
+              round: 0
+          }
+        case actionTypes.one_more_round:
+          return {
+              ...state,
+              round: state.round += 1
+          }
+          ///
         case actionTypes.change_display_value:
             return {
                 ...state,

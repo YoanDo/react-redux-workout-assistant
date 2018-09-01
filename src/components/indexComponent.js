@@ -6,10 +6,10 @@ import Runner from './runner';
 
 export default () => (
   <div>
-    <Timer min="5" max="120" defaultValue="30" label="time"/>
-    <Timer min="1" max="12" defaultValue="3" label="serie"/>
-    <Timer min="5" max="360" defaultValue="30" label="rest"/>
-    <Timer min="1" max="20" defaultValue="6" label="loop"/>
+    <Timer min="5" max="120" label="time"/>
+    <Timer min="1" max="12" label="serie"/>
+    <Timer min="5" max="360" label="rest"/>
+    <Timer min="1" max="20" label="loop"/>
     <Runner/>
 
 
