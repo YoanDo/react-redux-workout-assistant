@@ -30,6 +30,16 @@ body{
     width: $board-width;
 }
 
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+}
+
 
 .display {
     background-color: #d7f2cb;

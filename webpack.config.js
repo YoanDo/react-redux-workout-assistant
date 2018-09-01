@@ -25,11 +25,18 @@ module.exports = {
                     publicPath: '/'+public_folder
                 })
             },
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                use: 'babel-loader'
-            }
+{
+    test: /\.jsx?$/,
+    exclude: /node_modules/,
+    use: [
+      {
+        loader: 'babel-loader',
+        options: {
+          presets: ['react']
+        }
+      }
+    ],
+  }
         ]
     },
     plugins: [
@@ -39,8 +46,8 @@ module.exports = {
                 collapseWhitespace: false
             },
             hash: true,
-            template: './src/helpers/index.html', 
-        }), 
+            template: './src/helpers/index.html',
+        }),
         new ExtractTextPlugin({
             filename: 'main.css',
             disable: false,

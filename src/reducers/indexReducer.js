@@ -1,6 +1,11 @@
 import {actionTypes} from '../actions/indexAction'
 
 const defaultState = {
+    time:4,
+    serie:3,
+    rest:30,
+    loop:3,
+////
     display_value: 0,
     display_scale: 1,
     operation: null,
@@ -37,7 +42,7 @@ export default (state = defaultState, action) => {
             }
         case actionTypes.clear:
             return defaultState;
-        default: 
+        default:
             return state;
     }
 };
