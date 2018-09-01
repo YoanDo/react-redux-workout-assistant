@@ -12,41 +12,45 @@ import {} from '../actions/indexAction';  //👈👈👈 to set
         this.min = min;
         this.max = max;
         this.defaultValue = defaultValue;
+        this.state = { round: 0, running: false}
     };
-    go(){
-      var audio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-      audio.play();
-      console.log('yeeew');
-      // setTimeout(function(){go()}.bind(this),this.time*1000)
-      // let x = 0;
-      // while ( x < serie){
-      //     audio.play();
-      //     setTimeout(function(){console.log('yeww')}.bind(this),time*1000);
-      //     console.log('end');
-      //
-      // }
+
+    oneMoreRound(){
+      let newRound = this.state.round +=1
+      this.setState({round: newRound})
+      console.log(this.state.round)
     }
 
+    resetRound(){
+      let newRound = 0
+      this.setState({round: newRound, running: !this.state.running});
+      console.log(this.state)
+    }
 
-    do() {
+    alert() {
+      console.log('start')
       let series = this.props.serie
-      let n = 0;
       var audio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-      console.log(n);
-      repeat(){
-        if (n < series){
-          n +=1;
+        if (this.state.round < series){
           audio.play();
-          setInterval(function(){this.repeat()}.bind(this),this.time*1000)
+          this.oneMoreRound();
+          setTimeout(function(){ this.alert(); }.bind(this), this.props.time*1000);
         }
-      }
-      console.log('end')
+      // return console.log('the end')
+    }
+
+    launchExercise(){
+      this.resetRound();
+      this.alert();
+      this.setState({running: false})
     }
 
     render(){
+      console.log(this.props)
         return(
           <div className="">
-          <button onClick={() => this.repeat()}>TOP À LA VACHETTE</button>
+          <button onClick={ () =>  this.launchExercise() }>TOP À LA VACHETTE</button>
+          <p onClick={ () => this.resetRound() }>reset</p>
           </div>
     )}
 }

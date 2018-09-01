@@ -1,6 +1,6 @@
 import React from 'react';
-import Display from './display';
-import Button from './button';
+// import Display from './display';
+// import Button from './button';
 import Timer from './timer';
 import Runner from './runner';
 
@@ -13,7 +13,7 @@ export default () => (
     <Runner/>
 
 
-    /////////
+{/*    /////////
     <Display />
     <Button label="C" domain="clear" />
     <Button label="±" domain="toggle" />
@@ -33,6 +33,6 @@ export default () => (
     <Button label="+" domain="operation" />
     <Button label="0" domain="number" />
     <Button label="●" domain="dot" />
-    <Button label="=" domain="operation" />
+    <Button label="=" domain="operation" />*/}
   </div>
 );
