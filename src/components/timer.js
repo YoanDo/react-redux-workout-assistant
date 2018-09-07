@@ -23,7 +23,7 @@ import {} from '../actions/indexAction';  //👈👈👈 to set
           <form>
             <label>
               <p>{label}:</p>
-              <input type="number" name="" min={this.min} max={this.max} defaultValue={this.props[label]}/>
+              <input type="number" min={this.min} max={this.max} defaultValue={this.props[label]}/>
             </label>
           </form>
         </div>

@@ -20,17 +20,15 @@ import { toggle_runner, one_more_round } from '../actions/indexAction';
       let maxRound = this.props.serie;
       let actualRound= this.props.round;
       let on = this.props.running;
-      var audio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
-      // this.props.round < series
-      console.log( on, actualRound, maxRound )
+      // var audio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');
+      this.props.one_more_round();
+      // console.log( on, actualRound, maxRound )
         if ( on && actualRound < maxRound ){
-          this.props.one_more_round();
-          console.log('start');
-          audio.play();
+          // audio.play();
+          console.log('audio')
           setTimeout(function(){ this.alert(); }.bind(this), this.props.time*1000);
-        }else{
+        }if( on && actualRound == maxRound){
           this.props.toggle_runner()
-          console.log('the end')
         }
     }
 
@@ -40,10 +38,13 @@ import { toggle_runner, one_more_round } from '../actions/indexAction';
     }
 
     render(){
-      console.log(this.props)
+      let on = this.props.running;
         return(
           <div className="">
-            <button onClick={ () =>  this.launchExercise() }>{ this.props.running ? <p>STOP</p> : <p>TOP À LA VACHETTE</p>}</button>
+          {on ?
+            <button onClick={  () => this.props.toggle_runner() }> <p>STOP</p></button>
+            : <button onClick={  () =>  this.launchExercise() }> <p>TOP À LA VACHETTE</p> </button>
+          }
           </div>
     )}
 }

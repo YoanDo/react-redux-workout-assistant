@@ -5,7 +5,7 @@ import Timer from './timer';
 import Runner from './runner';
 
 export default () => (
-  <div>
+  <div className="flex-row">
     <Timer min="5" max="120" label="time"/>
     <Timer min="1" max="12" label="serie"/>
     <Timer min="5" max="360" label="rest"/>

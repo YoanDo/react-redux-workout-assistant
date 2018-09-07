@@ -1,7 +1,7 @@
 import {actionTypes} from '../actions/indexAction'
 
 const defaultState = {
-    time:4,
+    time:1,
     serie:3,
     rest:30,
     loop:3,
