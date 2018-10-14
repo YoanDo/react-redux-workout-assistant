@@ -61,10 +61,5 @@ export default connect(
    dispatch => ({
       toggle_runner: bindActionCreators(toggle_runner, dispatch),
       one_more_round: bindActionCreators(one_more_round, dispatch)
-        // change_display_value: bindActionCreators(change_display_value, dispatch),
-        // change_operation: bindActionCreators(change_operation, dispatch),
-        // set_operand: bindActionCreators(set_operand, dispatch),
-        // set_operator: bindActionCreators(set_operator, dispatch),
-        // clear: bindActionCreators(clear, dispatch)
    })
 )(Runner);

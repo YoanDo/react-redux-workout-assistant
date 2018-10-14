@@ -1,12 +1,7 @@
 export const actionTypes = {
     toggle_runner: "TOGGLE_RUNNER",
-    one_more_round: "ONE_MORE_ROUND"
-    // change_display_value: "CHANGE_DISPLAY",
-    // change_operation: "CHANGE_OPERATION",
-    // set_operand: "SET_OPERAND",
-    // clear: "CLEAR",
-    // set_operator: "SET_OPERATOR",
-    // set_scale: "SET_SCALE",
+    one_more_round: "ONE_MORE_ROUND",
+    update_value: "UPDATE_VALUE"
 }
 
 export const toggle_runner = () => {
@@ -21,6 +16,12 @@ export const one_more_round = () => {
     }
 }
 
+export const update_value = (label, new_value) => (dispatch) => {
+    return dispatch({
+      type: actionTypes.update_value,
+      label, new_value
+    })
+}
 
 
 //
