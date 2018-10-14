@@ -1,18 +1,11 @@
 export const actionTypes = {
     toggle_runner: "TOGGLE_RUNNER",
-    one_more_round: "ONE_MORE_ROUND",
     update_value: "UPDATE_VALUE"
 }
 
 export const toggle_runner = () => {
     return{
         type: actionTypes.toggle_runner
-    }
-}
-
-export const one_more_round = () => {
-    return{
-        type: actionTypes.one_more_round
     }
 }
 

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { update_value } from '../actions/indexAction';  //👈👈👈 to set
+import { update_value } from '../actions/indexAction';
 
 class Timer extends Component{
     constructor(props){
         super(props);
-        this.state = {
-        }
         let {label, min, max, defaultValue} = this.props;
         this.label = label;
         this.min = min;
