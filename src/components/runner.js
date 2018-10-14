@@ -41,10 +41,10 @@ import { toggle_runner } from '../actions/indexAction';
         setTimeout(function(){ this.alert() }.bind(this), exerciseTime)
       } else {
         if(loopDone == this.props.loop){
-        this.resetStates();
           if (this.state.on){
             audioCongrats.play();
           }
+          this.resetStates();
         }else{
           this.setState({ loopDone: loopDone +1, count: 0 });
           if(restTime !== 0){
@@ -59,18 +59,24 @@ import { toggle_runner } from '../actions/indexAction';
 
     launchExercise(){
       this.setState({ on: true });
-      const audioGetReady = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529663/sounds/get_ready.mp3')
+      const audioGetReady = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3')
       audioGetReady.play()
-      setTimeout(function(){ this.alert() }.bind(this),2500);
+      if (this.state.count === 0 && this.state.loopDone === 1){
+        this.setState({ standBy: true })
+        setTimeout(function(){ this.setState({ standBy: false }) }.bind(this),6000);
+      }
+      setTimeout(function(){ this.alert() }.bind(this),6000);
     }
 
     render(){
         return(
           <div className="">
-          { this.state.on  ?
-            <button onClick={  () => this.resetStates() }> <p>STOP</p></button>
-            : <button onClick={  () =>  this.launchExercise() }> <p>START</p> </button>
-          }
+          { this.state.on && !this.state.standBy ?
+            <button onClick={  () => this.resetStates() }> <p>STOP</p> </button>
+          : null}
+          { !this.state.on && !this.state.standBy ?<button onClick={  () =>  this.launchExercise() }> <p>START</p> </button>
+          : null}
+          { this.state.standBy ? <button className="standBy"><p>BE READY</p></button> : null }
           </div>
     )}
 }

@@ -14,7 +14,9 @@ body,
     height: 100%;
 }
 body{
-    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);;
+    // background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    background: -webkit-linear-gradient(to right, #E3FEE7, #D9E7FF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #E3FEE7, #D9E7FF);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +25,16 @@ body{
 * {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+button.standBy {
+  cursor: default;
+  opacity: .8;
+
 }
 
 #main {
