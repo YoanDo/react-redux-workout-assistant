@@ -72,32 +72,19 @@ button.standBy {
     flex-wrap: wrap;
 }
 
-.button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    width: $button-width;
-    color: #BCDB95;
-    height: $button-height;
-    background-color: #43246a;
-    &:last-of-type{
-        width: $button-width * 2;
-    }
-    &:active{
-        background-color: #4f2781;
-    }
+
+/**************
+   Controller
+***************/
+.ctrl-board{
+  width: 70%;
+  justify-content: space-between;
+}
+label.controller{
+  height: 60px;
+  margin: 20px;
 }
 
-.calculator_value{
-    position: absolute;
-    font-size: 80px;
-    padding: 0 15px 0 15px;
-    right: 0;
-    transform-origin: right;
-    display: inline-block;
-}
 
 /**************
      Footer

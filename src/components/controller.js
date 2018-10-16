@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { update_value } from '../actions/indexAction';
 
-class Timer extends Component{
+class Controller extends Component{
     constructor(props){
         super(props);
         let {label, min, max, defaultValue} = this.props;
@@ -22,10 +22,12 @@ class Timer extends Component{
       let label = this.label
         return(
         <div className="timer">
+          <p>{label}:</p>
           <form>
-            <label>
-              <p>{label}:</p>
+            <label className="flex-row controller">
+              <div className="ctrl-button">-</div>
               <input type="number" min={ this.min } max={ this.max } defaultValue={ this.props[label] } onChange={ this.handleChange }/>
+              <div className="ctrl-button">+</div>
             </label>
           </form>
         </div>
@@ -42,4 +44,4 @@ export default connect(
    dispatch => ({
       update_value: bindActionCreators(update_value, dispatch)
    })
-)(Timer);
+)(Controller);

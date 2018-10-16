@@ -1,17 +1,18 @@
 import React from 'react';
 // import Display from './display';
 // import Button from './button';
-import Timer from './timer';
+import Controller from './controller';
 import Runner from './runner';
 
 export default () => (
-  <div className="flex-row">
-    <Timer min="1" max="120" label="time"/>
-    <Timer min="0" max="30" label="serie"/>
-    <Timer min="0" max="360" label="rest"/>
-    <Timer min="1" max="20" label="loop"/>
+  <div className="flex-column">
+    <div className="flex-row ctrl-board">
+      <Controller min="1" max="120" label="time"/>
+      <Controller min="0" max="30" label="serie"/>
+      <Controller min="0" max="360" label="rest"/>
+      <Controller min="1" max="20" label="loop"/>
+    </div>
     <Runner/>
-
 
 {/*    /////////
     <Display />
