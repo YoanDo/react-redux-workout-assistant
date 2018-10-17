@@ -1,26 +1,39 @@
 //custom normalize, global rules are in there
 @import "./helpers/normalize.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Anton|Oswald');
 
 // mesure
 $board-height: 100vh;
-$board-width: 70vw;
+$board-width: 80vw;
+$block-width: 16vw;
 $display-height: 100px;
 $button-width: $board-width / 4;
 // $button-height: round(($board-height - $display-height) / 5);
 // color
-$purple: #121230;
+$purple: #25237E;
+$pink: #FFDECB;
+// test
+// compo1
+$cream: #E4E4DA;
+$vibRed: #FF4546;
+$charcoil: #2C2C2C;
+// compo 2
+$seaBlue: #01698C;
+$goldenSand: #E4D063;
+
+
+// size
+$large-font-size: 64px;
+$medium-font-size: 32px;
+$small-font-size: 16px;
 
 html,
-body,
-#main {
-    height: 70%;
-}
 body{
     // background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     // background: -webkit-linear-gradient(to right, #E3FEE7, #D9E7FF); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #E3FEE7, #D9E7FF);
-    // background-color: #070715;
+    // background: linear-gradient(to right, #E3FEE7, #D9E7FF);
+    height: 100%;
+    background-color: $charcoil;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +41,7 @@ body{
 }
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 button{
@@ -41,19 +54,36 @@ button.standBy {
 
 }
 
+h1{
+  font-family: 'Oswald', sans-serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: $large-font-size;
+}
+
+p{
+  color: white;
+  font-size: 16px;
+  // margin-bottom: 40px;
+}
+
 #main {
-    height: $board-height;
-    width: $board-width;
+    // height: $board-height;
+    // width: $board-width;
 }
 
 .flex-row{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-column{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -63,21 +93,41 @@ button.standBy {
 ***************/
 .ctrl-board{
   justify-content: space-between;
+  width: 100%;
+}
+.domain{
+  width: $block-width;
+  &:hover h1{
+      color: $vibRed;
+  }
+}
+.domain + .domain{
+  margin-left: 2vw;
 }
 .controller{
   border-radius: 6px;
   height: 60px;
-  margin: 20px;
-  background-color: $purple;
-  color: white;
+  margin: 20px 0;
+  border: 2px solid $vibRed;
+  color: $vibRed;
   width: 120px;
   .ctrl-button{
+    font-size: $small-font-size;
     width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 20px;
     font-size: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .display{
+    flex-grow: 1;
+    font-size: $medium-font-size
   }
 }
 

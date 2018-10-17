@@ -18,13 +18,15 @@ import { toggle_runner } from '../actions/indexAction';
         this.max = max;
         this.defaultValue = defaultValue;
         this.running= running;
+
+        this.launchExercise = this.launchExercise.bind(this)
     };
 
     resetStates(){
       this.setState({ count: 0, loopDone: 1, on: false })
     }
 
-    alert() {
+    start() {
       const count = this.state.count;
       const loopDone = this.state.loopDone;
       const exerciseTime = this.props.time * 1000;
@@ -38,7 +40,7 @@ import { toggle_runner } from '../actions/indexAction';
         if (count > 0 ){
           audioNext.play()
         }
-        setTimeout(function(){ this.alert() }.bind(this), exerciseTime)
+        setTimeout(function(){ this.start() }.bind(this), exerciseTime)
       } else {
         if(loopDone == this.props.loop){
           if (this.state.on){
@@ -65,18 +67,19 @@ import { toggle_runner } from '../actions/indexAction';
         this.setState({ standBy: true })
         setTimeout(function(){ this.setState({ standBy: false }) }.bind(this),6000);
       }
-      setTimeout(function(){ this.alert() }.bind(this),6000);
+      setTimeout(function(){ this.start() }.bind(this),6000);
     }
 
     render(){
         return(
-          <div className="">
-          { this.state.on && !this.state.standBy ?
-            <button onClick={  () => this.resetStates() }> <p>STOP</p> </button>
-          : null}
-          { !this.state.on && !this.state.standBy ?<button onClick={  () =>  this.launchExercise() }> <p>START</p> </button>
-          : null}
-          { this.state.standBy ? <button className="standBy"><p>BE READY</p></button> : null }
+          <div className="flex-column">
+            { this.state.on && !this.state.standBy ?
+              <button onClick={  () => this.resetStates() }> <p>STOP</p> </button>
+            : null}
+            { !this.state.on && !this.state.standBy ?<button onClick={ this.launchExercise }> <p>START</p> </button>
+            : null}
+            { this.state.standBy ? <button className="standBy"><p>BE READY</p></button> : null }
+            <p onClick={ console.log('to do') }>reset</p>
           </div>
     )}
 }

@@ -49,15 +49,15 @@ class Controller extends Component{
     render(){
       let label = this.label
         return(
-        <div className="timer">
-          <p>{label}:{this.state.value}</p>
-          <form>
-            <label className="flex-row controller">
-              <div className="ctrl-button" onClick={ this.decreaseValue }>-</div>
-              <input type="number" min={ this.min } max={ this.max } defaultValue={ this.props[label] } onChange={ this.handleChange }/>
-              <div className="ctrl-button" onClick={ this.increaseValue } >+</div>
-            </label>
-          </form>
+        <div className="domain">
+          <h1 className="">{label}</h1>
+          <p>What is your objective ? Set long would you like to keep your exercise going</p>
+          <div className="flex-row controller">
+            <div className="ctrl-button" onClick={ this.decreaseValue }>-</div>
+            <div className="display flex-row">{ this.state.value }</div>
+            {/*<input type="number" min={ this.min } max={ this.max } value={ this.state.value} defaultValue={ this.props[label] } onChange={ this.handleChange }/>*/}
+            <div className="ctrl-button" onClick={ this.increaseValue } >+</div>
+          </div>
         </div>
     )}
 }

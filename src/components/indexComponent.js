@@ -7,9 +7,9 @@ import Runner from './runner';
 export default () => (
   <div className="flex-column">
     <div className="flex-row ctrl-board">
-      <Controller min="15" max="120" label="time"/>
+      <Controller min="5" max="120" label="time"/>
       <Controller min="1" max="30" label="serie"/>
-      <Controller min="15" max="360" label="rest"/>
+      <Controller min="5" max="360" label="rest"/>
       <Controller min="1" max="20" label="loop"/>
     </div>
     <Runner/>
