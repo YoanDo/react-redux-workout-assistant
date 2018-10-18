@@ -79,7 +79,7 @@ import { toggle_runner } from '../actions/indexAction';
             { !this.state.on && !this.state.standBy ?<button onClick={ this.launchExercise }> <p>START</p> </button>
             : null}
             { this.state.standBy ? <button className="standBy"><p>BE READY</p></button> : null }
-            <p onClick={ console.log('to do') }>reset</p>
+            <p>reset</p>
           </div>
     )}
 }

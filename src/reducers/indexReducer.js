@@ -1,9 +1,9 @@
 import {actionTypes} from '../actions/indexAction'
 
 const defaultState = {
-    time:15,
+    time:5,
     serie:1,
-    rest:0,
+    rest:5,
     loop:1,
     running: false,
 };
