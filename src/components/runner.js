@@ -8,7 +8,8 @@ import { toggle_runner } from '../actions/indexAction';
         super(props);
         this.state = {
           standBy: false,
-          count: 0,
+          trackCount: 0,
+          remainingTime: 0,
           loopDone: 1,
           on: false
         }
@@ -20,39 +21,56 @@ import { toggle_runner } from '../actions/indexAction';
         this.running= running;
 
         this.launchExercise = this.launchExercise.bind(this)
+        this.countDown = this.countDown.bind(this)
     };
 
     resetStates(){
-      this.setState({ count: 0, loopDone: 1, on: false })
+      this.setState({ trackCount: 0, loopDone: 1, on: false })
+    }
+
+    countDown(restart){
+      if (this.state.remainingTime -1 >= 0){
+        this.setState({ remainingTime: this.state.remainingTime - 1 });
+        setTimeout(function(){ this.countDown(restart) }.bind(this), 1000)
+      }else if(restart){
+        this.launchExercise()
+      }else{
+        this.start()
+      }
+      console.log(this.state.remainingTime)
     }
 
     start() {
-      const count = this.state.count;
+      const trackCount = this.state.trackCount;
       const loopDone = this.state.loopDone;
-      const exerciseTime = this.props.time * 1000;
-      const restTime = this.props.rest * 1000;
+      const exerciseTime = this.props.time + 1;
+      const restTime = this.props.rest +1;
       const audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3');
       const audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
       const audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
-      console.log(this.state.count, this.state.on );
-      this.setState({ count: count +1});
-      if (count < this.props.serie && this.state.on){
-        if (count > 0 ){
+      console.log(this.state.trackCount, this.state.on );
+      this.setState({ trackCount: trackCount +1});
+      if (trackCount < this.props.serie && this.state.on){
+        if (trackCount > 0 && loopDone > 1){
           audioNext.play()
         }
-        setTimeout(function(){ this.start() }.bind(this), exerciseTime)
+        this.setState({ remainingTime: exerciseTime })
+        this.countDown(false);
       } else {
         if(loopDone == this.props.loop){
           if (this.state.on){
             audioCongrats.play();
           }
           this.resetStates();
-        }else{
-          this.setState({ loopDone: loopDone +1, count: 0 });
+        }
+        if (trackCount === this.props.serie && loopDone < this.props.loop){
           if(restTime !== 0){
             audioRest.play()
-            setTimeout(function(){ this.launchExercise() }.bind(this), exerciseTime)
-          }else{
+            this.setState({ remainingTime: restTime})
+            this.countDown(true);
+            this.setState({ loopDone: loopDone +1, trackCount: 0 });
+          }
+          else{
             this.launchExercise()
           }
         }
@@ -60,10 +78,11 @@ import { toggle_runner } from '../actions/indexAction';
     }
 
     launchExercise(){
+      const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
+      console.log('start', this.state)
       this.setState({ on: true });
-      const audioGetReady = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3')
       audioGetReady.play()
-      if (this.state.count === 0 && this.state.loopDone === 1){
+      if (this.state.trackCount === 0 && this.state.loopDone === 1){
         this.setState({ standBy: true })
         setTimeout(function(){ this.setState({ standBy: false }) }.bind(this),6000);
       }
@@ -73,6 +92,7 @@ import { toggle_runner } from '../actions/indexAction';
     render(){
         return(
           <div className="flex-column">
+          <h1>here:{this.state.remainingTime}</h1>
             { this.state.on && !this.state.standBy ?
               <button className="runner" onClick={  () => this.resetStates() }> <p>stop</p> </button>
             : null}

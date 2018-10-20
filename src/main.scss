@@ -15,12 +15,13 @@ $pink: #FFDECB;
 // test
 // compo1
 $cream: #E4E4DA;
-$vibRed: #FF4546;
+$vibRed: #FCFAA3;
 $charcoil: #2C2C2C;
 // compo 2
 $seaBlue: #01698C;
 $goldenSand: #E4D063;
-
+// compo 3
+$yellow: #FCFAA3;
 
 // size
 $large-font-size: 64px;
@@ -97,7 +98,7 @@ p{
   width: $block-width;
   margin-bottom: 6vh;
   &:hover h1{
-      color: $vibRed;
+      color: $yellow;
   }
 }
 .domain + .domain{
@@ -107,8 +108,8 @@ p{
   border-radius: 6px;
   height: 60px;
   margin: 20px 0;
-  border: 2px solid $vibRed;
-  color: $vibRed;
+  border: 2px solid $yellow;
+  color: $yellow;
   width: 120px;
   .ctrl-button{
     font-size: $small-font-size;
@@ -134,11 +135,13 @@ p{
 .runner{
   width: 50vw;
   border-radius: 6px;
-  background-color: $vibRed;
-  color: $charcoil;
+  background-color: $yellow;
   border: none;
   text-transform: uppercase;
   cursor: pointer;
+  p{
+    color: $charcoil;
+  }
 }
 
 
