@@ -74,11 +74,11 @@ import { toggle_runner } from '../actions/indexAction';
         return(
           <div className="flex-column">
             { this.state.on && !this.state.standBy ?
-              <button onClick={  () => this.resetStates() }> <p>STOP</p> </button>
+              <button className="runner" onClick={  () => this.resetStates() }> <p>stop</p> </button>
             : null}
-            { !this.state.on && !this.state.standBy ?<button onClick={ this.launchExercise }> <p>START</p> </button>
+            { !this.state.on && !this.state.standBy ?<button className="runner" onClick={ this.launchExercise }> <p>start</p> </button>
             : null}
-            { this.state.standBy ? <button className="standBy"><p>BE READY</p></button> : null }
+            { this.state.standBy ? <button className="standBy runner"><p>get ready</p></button> : null }
             <p>reset</p>
           </div>
     )}

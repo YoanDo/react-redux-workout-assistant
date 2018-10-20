@@ -95,6 +95,7 @@ p{
 }
 .domain{
   width: $block-width;
+  margin-bottom: 6vh;
   &:hover h1{
       color: $vibRed;
   }
@@ -127,6 +128,17 @@ p{
     flex-grow: 1;
     font-size: $medium-font-size
   }
+}
+
+//
+.runner{
+  width: 50vw;
+  border-radius: 6px;
+  background-color: $vibRed;
+  color: $charcoil;
+  border: none;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
 
