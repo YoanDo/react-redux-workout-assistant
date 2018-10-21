@@ -10,11 +10,10 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     switch (action.type){
-        case actionTypes.toggle_runner:
+        case actionTypes.toggle_run:
           return {
               ...state,
               running: !state.running,
-              round: 0
           }
         case actionTypes.update_value:
           return {

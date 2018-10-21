@@ -1,11 +1,11 @@
 export const actionTypes = {
-    toggle_runner: "TOGGLE_RUNNER",
+    toggle_run: "TOGGLE_RUN",
     update_value: "UPDATE_VALUE"
 }
 
-export const toggle_runner = () => {
+export const toggle_run = () => {
     return{
-        type: actionTypes.toggle_runner
+        type: actionTypes.toggle_run
     }
 }
 
@@ -14,46 +14,4 @@ export const update_value = (label, new_value) => (dispatch) => {
       type: actionTypes.update_value,
       label, new_value
     })
-}
-
-
-//
-export const change_display_value = (display_value) => {
-    return{
-        type: actionTypes.change_display_value
-    }
-}
-
-export const change_operation = (operation) => {
-    return{
-        type: actionTypes.change_operation,
-        operation
-    }
-}
-
-export const set_operand = (operand) => {
-    return{
-        type: actionTypes.set_operand,
-        operand
-    }
-}
-
-export const set_operator = (operator) => {
-    return{
-        type: actionTypes.set_operator,
-        operator
-    }
-}
-
-export const set_scale = (display_scale) => {
-    return{
-        type: actionTypes.set_scale,
-        display_scale
-    }
-}
-
-export const clear = () => {
-    return{
-        type: actionTypes.clear
-    }
 }

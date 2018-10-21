@@ -36,11 +36,10 @@ class Controller extends Component{
         return(
         <div className="domain">
           <h1 className="">{label}</h1>
-          <p>What is your objective ? Set long would you like to keep your exercise going</p>
+          <p>What is your objective ? Set your exercise blablabla duration</p>
           <div className="flex-row controller">
             <div className="ctrl-button" onClick={ this.decreaseValue }>-</div>
             <div className="display flex-row">{ this.props[label]}</div>
-            {/*<input type="number" min={ this.min } max={ this.max } value={ this.state.value} defaultValue={ this.props[label] } onChange={ this.handleChange }/>*/}
             <div className="ctrl-button" onClick={ this.increaseValue } >+</div>
           </div>
         </div>
