@@ -51,7 +51,7 @@ import { toggle_runner } from '../actions/indexAction';
       console.log(this.state.trackCount, this.state.on );
       this.setState({ trackCount: trackCount +1});
       if (trackCount < this.props.serie && this.state.on){
-        if (trackCount > 0 && loopDone > 1){
+        if (trackCount > 0){
           audioNext.play()
         }
         this.setState({ remainingTime: exerciseTime })
