@@ -10,6 +10,7 @@ import { toggle_run } from '../actions/indexAction';
           trackCount: 0,
           remainingTime: 0,
           loopDone: 1,
+          referenceValue: 0
         }
 
         this.launchExercise = this.launchExercise.bind(this)
@@ -53,7 +54,7 @@ import { toggle_run } from '../actions/indexAction';
         if (trackCount > 0){
           audioNext.play()
         }
-        this.setState({ remainingTime: exerciseTime })
+        this.setState({ remainingTime: exerciseTime, referenceValue:  exerciseTime - 1  })
         this.countDown(false);
       } else {
         if(loopDone == this.props.loop){
@@ -85,9 +86,13 @@ import { toggle_run } from '../actions/indexAction';
     }
 
     render(){
+        const progression = { width: this.state.remainingTime / this.state.referenceValue *100 +"%"}
         return(
           <div className="flex-column">
-          <h1>here:{ this.state.remainingTime }</h1>
+          <h1>{ this.state.remainingTime } / { this.state.referenceValue } /// progression</h1>
+            <div className="bar">
+             <div className="progression" style={progression}></div>
+            </div>
           </div>
     )}
 }

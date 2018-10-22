@@ -125,7 +125,7 @@ p{
     -ms-user-select: none;
     user-select: none;
   }
-  .display{
+  .ctrl-display{
     flex-grow: 1;
     font-size: $medium-font-size
   }
@@ -144,6 +144,20 @@ p{
   }
 }
 
+/**************
+   display
+***************/
+.bar{
+  width: 100vw;
+  height: 6vh;
+  // background-color: red;
+  .progression{
+    height: 100%;
+    width: 0%;
+    background-color: $yellow;
+    transition: ease-in ease-out 1s;
+  }
+}
 
 /**************
      Footer

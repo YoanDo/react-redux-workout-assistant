@@ -39,7 +39,7 @@ class Controller extends Component{
           <p>What is your objective ? Set your exercise blablabla duration</p>
           <div className="flex-row controller">
             <div className="ctrl-button" onClick={ this.decreaseValue }>-</div>
-            <div className="display flex-row">{ this.props[label]}</div>
+            <div className="ctrl-display flex-row">{ this.props[label]}</div>
             <div className="ctrl-button" onClick={ this.increaseValue } >+</div>
           </div>
         </div>
