@@ -66,7 +66,7 @@ import { toggle_run } from '../actions/indexAction';
         if (trackCount === this.props.serie && loopDone < this.props.loop){
           if(restTime !== 0){
             audioRest.play()
-            this.setState({ remainingTime: restTime})
+            this.setState({ remainingTime: exerciseTime, referenceValue:  exerciseTime - 1  })
             this.countDown(true);
             this.setState({ loopDone: loopDone +1, trackCount: 0 });
           }
