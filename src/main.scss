@@ -148,12 +148,14 @@ p{
    display
 ***************/
 .bar{
+  top: -6vh;
+  position: absolute;
   width: 100vw;
   height: 6vh;
   // background-color: red;
   .progression{
     height: 100%;
-    width: 0%;
+    width: 100%;
     background-color: $yellow;
     transition: ease-in ease-out 1s;
   }
