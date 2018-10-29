@@ -12,7 +12,6 @@ import { toggle_run } from '../actions/indexAction';
           loopDone: 1,
           referenceValue: 0
         }
-
         this.launchExercise = this.launchExercise.bind(this)
         this.countDown = this.countDown.bind(this)
     };
@@ -44,26 +43,30 @@ import { toggle_run } from '../actions/indexAction';
       const trackCount = this.state.trackCount;
       const loopDone = this.state.loopDone;
       const exerciseTime = this.props.time + 1;
-      const restTime = this.props.rest +1;
+      const restTime = this.props.rest + 1;
+      // const running = this.props.running --> will replace state.on
+      // progression
+      const endOfTrack = trackCount === this.props.serie && loopDone < this.props.loop
+      // audio
       const audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3');
       const audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
       const audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
-      console.log(this.state.trackCount, this.state.on );
+      console.log(this.state.trackCount, this.props.running );
       this.setState({ trackCount: trackCount +1});
-      if (trackCount < this.props.serie && this.state.on){
+      if (trackCount < this.props.serie && this.props.running){
         if (trackCount > 0){
           audioNext.play()
         }
         this.setState({ remainingTime: exerciseTime, referenceValue:  exerciseTime - 1  })
         this.countDown(false);
-      } else {
+      } else if (this.props.running) {
         if(loopDone == this.props.loop){
-          if (this.state.on){
+          if (this.props.running){
             audioCongrats.play();
           }
           this.resetStates();
         }
-        if (trackCount === this.props.serie && loopDone < this.props.loop){
+        if (endOfTrack){
           if(restTime !== 0){
             console.log(restTime, this.props.rest)
             audioRest.play()
@@ -79,11 +82,20 @@ import { toggle_run } from '../actions/indexAction';
     }
 
     launchExercise(){
-      const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
-      console.log('start', this.state)
-      this.setState({ on: true });
-      audioGetReady.play()
-      setTimeout(function(){ this.start() }.bind(this),6000);
+      console.log(this.props.running)
+      if(this.props.running){
+        const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
+        console.log('start', this.state)
+        // irrelevant, create new stopper
+        // this.setState({ on: true });
+        audioGetReady.play()
+        console.log('get ready')
+        setTimeout(function(){ this.start() }.bind(this),6000);
+        // this.start()
+      }else{
+        console.log('exit')
+        return;
+      }
     }
 
     render(){
