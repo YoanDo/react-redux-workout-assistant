@@ -28,7 +28,7 @@ import { toggle_run } from '../actions/indexAction';
     }
 
     countDown(restart){
-      if (this.state.remainingTime -1 >= 0){
+      if (this.state.remainingTime -1 >= 0 && this.props.running){
         this.setState({ remainingTime: this.state.remainingTime - 1 });
         setTimeout(function(){ this.countDown(restart) }.bind(this), 1000)
       }else if(restart){
@@ -88,7 +88,7 @@ import { toggle_run } from '../actions/indexAction';
         console.log('start', this.state)
         // irrelevant, create new stopper
         // this.setState({ on: true });
-        audioGetReady.play()
+        // audioGetReady.play()
         console.log('get ready')
         setTimeout(function(){ this.start() }.bind(this),6000);
         // this.start()

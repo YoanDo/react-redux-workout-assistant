@@ -11,13 +11,6 @@ import { toggle_run } from '../actions/indexAction';
         }
     };
 
-    // interState(){
-    //   if (this.state.trackCount === 0 && this.state.loopDone === 1){
-    //     this.setState({ standBy: true })
-    //     setTimeout(function(){ this.setState({ standBy: false }) }.bind(this),6000);
-    //   }
-    // }
-
     render(){
         return(
           <div className="flex-column">
