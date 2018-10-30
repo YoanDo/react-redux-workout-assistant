@@ -17,6 +17,9 @@ import { toggle_run } from '../actions/indexAction';
     };
 
     componentDidUpdate(prevProps) {
+      if (this.props.running !== prevProps.running){
+        this.audioPlayer('stop')
+      }
       if (this.props.running !== prevProps.running && this.props.running) {
         this.launchExercise();
       }
@@ -29,6 +32,9 @@ import { toggle_run } from '../actions/indexAction';
 
     countDown(restart){
       if (this.state.remainingTime -1 >= 0 && this.props.running){
+        if( this.state.referenceValue >= 20 && this.state.remainingTime == 10 ){
+          this.audioPlayer('tenSeconds')
+        }
         this.setState({ remainingTime: this.state.remainingTime - 1 });
         setTimeout(function(){ this.countDown(restart) }.bind(this), 1000)
       }else if(restart){
@@ -39,37 +45,67 @@ import { toggle_run } from '../actions/indexAction';
       console.log(this.state.remainingTime)
     }
 
+    audioPlayer(sound){
+      const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
+      const audioTenSec = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1540927160/sounds/10_more_seconds.mp3');
+      const audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3');
+      const audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
+      const audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
+
+      if(sound == 'getReady'){
+        audioGetReady.play()
+      }
+      if(sound == 'tenSeconds'){
+        audioTenSec.play()
+      }
+      if(sound == 'next'){
+        audioNext.play()
+      }
+      if(sound == 'rest'){
+        audioRest.play()
+      }
+      if(sound == 'congrats'){
+        audioCongrats.play()
+      }
+      // if(sound == 'stop'){
+      //   audioGetReady.pause();
+      //   audioGetReady.currentTime = 0;
+      //   audioTenSec.pause();
+      //   audioTenSec.currentTime = 0;
+      //   audioNext.pause();
+      //   audioNext.currentTime = 0;
+      //   audioRest.pause();
+      //   audioRest.currentTime = 0;
+      //   audioCongrats.pause();
+      //   audioCongrats.currentTime = 0;
+      // }
+    }
+
     start() {
       const trackCount = this.state.trackCount;
       const loopDone = this.state.loopDone;
       const exerciseTime = this.props.time + 1;
       const restTime = this.props.rest + 1;
-      // const running = this.props.running --> will replace state.on
       // progression
       const endOfTrack = trackCount === this.props.serie && loopDone < this.props.loop
-      // audio
-      const audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3');
-      const audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
-      const audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
       console.log(this.state.trackCount, this.props.running );
       this.setState({ trackCount: trackCount +1});
       if (trackCount < this.props.serie && this.props.running){
         if (trackCount > 0){
-          audioNext.play()
+          this.audioPlayer('next')
         }
         this.setState({ remainingTime: exerciseTime, referenceValue:  exerciseTime - 1  })
         this.countDown(false);
       } else if (this.props.running) {
         if(loopDone == this.props.loop){
           if (this.props.running){
-            audioCongrats.play();
+            this.audioPlayer('congrats')
           }
           this.resetStates();
         }
         if (endOfTrack){
           if(restTime !== 0){
-            console.log(restTime, this.props.rest)
-            audioRest.play()
+            this.audioPlayer('rest')
             this.setState({ remainingTime: restTime, referenceValue:  restTime - 1  })
             this.countDown(true);
             this.setState({ loopDone: loopDone +1, trackCount: 0 });
@@ -84,12 +120,10 @@ import { toggle_run } from '../actions/indexAction';
     launchExercise(){
       console.log(this.props.running)
       if(this.props.running){
-        const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
+
         console.log('start', this.state)
-        // irrelevant, create new stopper
-        // this.setState({ on: true });
-        // audioGetReady.play()
-        console.log('get ready')
+        this.audioPlayer('getReady');
+        // console.log('get ready')
         setTimeout(function(){ this.start() }.bind(this),6000);
         // this.start()
       }else{
