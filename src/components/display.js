@@ -76,8 +76,8 @@ import { toggle_run } from '../actions/indexAction';
         this.audioNext.currentTime = 0;
         this.audioRest.pause();
         this.audioRest.currentTime = 0;
-        this.audioCongrats.pause();
-        this.audioCongrats.currentTime = 0;
+        // this.audioCongrats.pause();
+        // this.audioCongrats.currentTime = 0;
       }
     }
 
