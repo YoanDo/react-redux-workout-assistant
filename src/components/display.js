@@ -45,40 +45,40 @@ import { toggle_run } from '../actions/indexAction';
       console.log(this.state.remainingTime)
     }
 
-    audioPlayer(sound){
-      const audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
-      const audioTenSec = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1540927160/sounds/10_more_seconds.mp3');
-      const audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3');
-      const audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
-      const audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
+    audioGetReady = new Audio("https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3")
+    audioTenSec = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1540927160/sounds/10_more_seconds.mp3')
+    audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3')
+    audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
+    audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
 
+    audioPlayer(sound){
       if(sound == 'getReady'){
-        audioGetReady.play()
+        this.audioGetReady.play()
       }
       if(sound == 'tenSeconds'){
-        audioTenSec.play()
+        this.audioTenSec.play()
       }
       if(sound == 'next'){
-        audioNext.play()
+        this.audioNext.play()
       }
       if(sound == 'rest'){
-        audioRest.play()
+        this.audioRest.play()
       }
       if(sound == 'congrats'){
-        audioCongrats.play()
+        this.audioCongrats.play()
       }
-      // if(sound == 'stop'){
-      //   audioGetReady.pause();
-      //   audioGetReady.currentTime = 0;
-      //   audioTenSec.pause();
-      //   audioTenSec.currentTime = 0;
-      //   audioNext.pause();
-      //   audioNext.currentTime = 0;
-      //   audioRest.pause();
-      //   audioRest.currentTime = 0;
-      //   audioCongrats.pause();
-      //   audioCongrats.currentTime = 0;
-      // }
+      if(sound == 'stop'){
+        this.audioGetReady.pause();
+        this.audioGetReady.currentTime = 0;
+        this.audioTenSec.pause();
+        this.audioTenSec.currentTime = 0;
+        this.audioNext.pause();
+        this.audioNext.currentTime = 0;
+        this.audioRest.pause();
+        this.audioRest.currentTime = 0;
+        this.audioCongrats.pause();
+        this.audioCongrats.currentTime = 0;
+      }
     }
 
     start() {
