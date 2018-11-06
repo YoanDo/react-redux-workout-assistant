@@ -118,22 +118,16 @@ import { toggle_run } from '../actions/indexAction';
     }
 
     launchExercise(){
-      console.log(this.props.running)
       if(this.props.running){
-
-        console.log('start', this.state)
         this.audioPlayer('getReady');
-        // console.log('get ready')
         setTimeout(function(){ this.start() }.bind(this),6000);
-        // this.start()
       }else{
-        console.log('exit')
         return;
       }
     }
 
     render(){
-        const progression = { width: this.state.remainingTime / this.state.referenceValue *100 +"%"}
+        const progression = { width: this.state.remainingTime / this.state.referenceValue *100 +"%" }
         return(
           <div className="flex-column">
             <div className="bar">

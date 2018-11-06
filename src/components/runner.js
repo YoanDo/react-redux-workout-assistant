@@ -20,7 +20,7 @@ import { toggle_run } from '../actions/indexAction';
             { !this.props.running  ?<button className="runner" onClick={ this.props.toggle_run }> <p>start</p> </button>
             : null}
             { this.state.standBy ? <button className="standBy runner"><p>get ready</p></button> : null }
-            <p>reset</p>
+            <p onClick={ () => this.props.reset }>reset</p>
           </div>
     )}
 }
