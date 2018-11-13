@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "prod": "webpack -p",
-    "lint": "./node_modules/eslint/bin/eslint.js --cache --fix"
+    "lint": "eslint src --ext .js,.jsx --cache --fix"
   },
   "keywords": [],
   "author": "YoanDo <y.n.dorny@gmail.com>",

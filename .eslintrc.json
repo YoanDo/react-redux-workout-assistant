@@ -5,5 +5,12 @@
         "es6": true
     },
     "parser": "babel-eslint",
-    "extends": "airbnb"
+    "extends": [
+      "airbnb",
+      "eslint:recommended"
+    ]
+    "rules": {
+    "quotes": [2, "single"],
+    "no-alert": 0
+  }
 }
