@@ -1,16 +1,26 @@
 {
-    "env": {
-        "node": true,
-        "browser": true,
-        "es6": true
-    },
-    "parser": "babel-eslint",
-    "extends": [
-      "airbnb",
-      "eslint:recommended"
-    ]
-    "rules": {
+  "env": {
+      "node": true,
+      "browser": true,
+      "es6": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+        "react-redux"
+    ],
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react-redux/recommended"
+  ],
+  "rules": {
     "quotes": [2, "single"],
-    "no-alert": 0
-  }
+    "no-alert": 0,
+    "camelcase": "always",
+    "no-unused-vars": true,
+    "no-shadow": true,
+    "no-var": true,
+    "prefer-arrow-callback": true,
+  },
+  "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
 }

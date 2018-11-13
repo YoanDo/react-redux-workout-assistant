@@ -6,8 +6,8 @@
 */
 
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import Index from './components/indexComponent';
 import store from './store';
 
@@ -17,5 +17,5 @@ render(
   <Provider store={store}>
     <Index />
   </Provider>,
-  document.getElementById('main')
+  document.getElementById('main'),
 );
