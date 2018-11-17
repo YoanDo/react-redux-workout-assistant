@@ -4,13 +4,17 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    plugins: ['react'],
+    plugins: ["react-redux"],
     "ecmaFeatures": {
       "jsx": true
     },
     "parser": "babel-eslint",
-    "extends": "airbnb",
+    "extends": [
+      // "airbnb",
+      "plugin:react-redux/recommended"
+    ],
     "rules": {
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
       "quotes": [2, "single"],
       "no-alert": [0],
       "camelcase": [2],

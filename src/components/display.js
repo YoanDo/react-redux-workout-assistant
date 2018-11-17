@@ -46,13 +46,9 @@ class Display extends Component {
   }
 
     audioGetReady = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539540139/sounds/get_ready.mp3')
-
     audioTenSec = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1540927160/sounds/10_more_seconds.mp3')
-
     audioNext = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539530167/sounds/next_exercise.mp3')
-
     audioRest = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539531176/sounds/time_to_rest.mp3')
-
     audioCongrats = new Audio('https://res.cloudinary.com/dyub4bz6x/video/upload/v1539529922/sounds/congratulation.mp3')
 
     audioPlayer(sound) {
