@@ -1,21 +1,30 @@
 /*
-    Author: Selhar
-    Date: 2017
-    Contact: selhar@protonmail.com
-    License: GPL
+    Author: yoando
+    Date: 2018
+    Contact: y.n.dorny@gmail.com
+    License: /
 */
 
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
 import Index from './components/indexComponent';
 import store from './store';
+import {IntlProvider} from "react-intl";
+import messages_fr from "./translations/fr";
+import messages_en from "./translations/en";
 
+const messages = {
+    'fr': messages_fr,
+    'en': messages_en
+};
 const css = require('./main.scss');
 
 render(
-  <Provider store={store}>
-    <Index />
-  </Provider>,
+  <IntlProvider locale='en'>
+    <Provider store={store}>
+      <Index />
+    </Provider>
+  </IntlProvider>,
   document.getElementById('main'),
 );

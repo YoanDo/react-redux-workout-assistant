@@ -2,6 +2,11 @@ import React from 'react';
 import Display from './display';
 import Controller from './controller';
 import Runner from './runner';
+import { addLocaleData } from "react-intl";
+import locale_en from 'react-intl/locale-data/en';
+import locale_fr from 'react-intl/locale-data/fr';
+
+addLocaleData([...locale_en, ...locale_fr]);
 
 export default () => (
   <div className="flex-column">

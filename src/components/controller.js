@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { update_value } from '../actions/indexAction';
+import { FormattedMessage } from 'react-intl';
+
 
 class Controller extends Component {
   constructor(props) {
@@ -37,6 +39,7 @@ class Controller extends Component {
     const label = this.label;
     return (
       <div className="domain">
+      <FormattedMessage id="test" />
         <h1 className="">{label}</h1>
         <p>What is your objective ? Set your exercise blablabla duration</p>
         <div className="flex-row controller">
