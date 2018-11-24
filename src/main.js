@@ -18,10 +18,12 @@ const messages = {
     'fr': messages_fr,
     'en': messages_en
 };
+const language = navigator.language.split(/[-_]/)[0];
+
 const css = require('./main.scss');
 
 render(
-  <IntlProvider locale='en'>
+  <IntlProvider locale={language} messages={messages[language]}>
     <Provider store={store}>
       <Index />
     </Provider>

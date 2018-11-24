@@ -1,3 +1,6 @@
 {
-  "test": "Hello world"
+  "time": "What is your goal? Define the duration of your exercises",
+  "serie": "How many repetitions do you want to perform per turn?",
+  "rest": "Define the rest time needed at the end of each serie",
+  "loop": "How many loop would you like to do? "
 }

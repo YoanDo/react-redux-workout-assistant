@@ -39,9 +39,8 @@ class Controller extends Component {
     const label = this.label;
     return (
       <div className="domain">
-      <FormattedMessage id="test" />
         <h1 className="">{label}</h1>
-        <p>What is your objective ? Set your exercise blablabla duration</p>
+        <p><FormattedMessage id={label} /></p>
         <div className="flex-row controller">
           <div className="ctrl-button" onClick={this.decreaseValue}>-</div>
           <div className="ctrl-display flex-row">{ this.props[label]}</div>
