@@ -39,7 +39,7 @@ class Control extends Component {
     const label = this.label;
     return (
       <div className="domain">
-        <h1 className="" onClick={this.decreaseValue}>{label}</h1>
+        <h1 className="" onClick={this.increaseValue}>{label}</h1>
         <p><FormattedMessage id={label} /></p>
         <div className="flex-row controller">
           <div className="ctrl-button" onClick={this.decreaseValue}>-</div>

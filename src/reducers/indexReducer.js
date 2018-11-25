@@ -20,6 +20,8 @@ export default (state = defaultState, action) => {
         ...state,
         [action.label]: action.new_value,
       };
+    case actionTypes.reset:
+      return defaultState
     default:
       return state;
   }

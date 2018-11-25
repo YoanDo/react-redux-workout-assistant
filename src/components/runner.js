@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { toggle_run } from '../actions/indexAction';
+import { toggle_run, reset } from '../actions/indexAction';
 
 class Runner extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class Runner extends Component {
         )
           : null}
         { this.state.standBy ? <button className="standBy runner"><p>get ready</p></button> : null }
-        <p onClick={() => this.props.reset}>reset</p>
+        <p onClick={this.props.reset}>reset</p>
       </div>
     );
   }
@@ -44,5 +44,6 @@ export default connect(
   }),
   dispatch => ({
     toggle_run: bindActionCreators(toggle_run, dispatch),
+    reset: bindActionCreators(reset, dispatch),
   }),
 )(Runner);

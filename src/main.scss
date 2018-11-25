@@ -5,9 +5,8 @@
 // mesure
 $board-height: 100vh;
 $board-width: 72vw;
-$block-width: 15vw;
+$block-width: 12vw;
 $display-height: 100px;
-$button-width: $board-width / 4;
 
 // color to clean 🚨
 $purple: #25237E;
@@ -40,8 +39,14 @@ body{
     // background-image: url("/assets/images/shape_test.png");
 }
 * {
-    box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
 button{
@@ -90,7 +95,7 @@ p{
 ***************/
 .ctrl-board{
   justify-content: space-between;
-  width: 100%;
+  width: $board-width;
 }
 .domain{
   display: flex;
@@ -103,6 +108,7 @@ p{
   &:hover h1{
       color: $yellow;
   }
+  h1{cursor:pointer}
 }
 .domain + .domain{
   margin-left: 2vw;
@@ -123,10 +129,6 @@ p{
     line-height: 20px;
     font-size: 20px;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
   .ctrl-display{
     flex-grow: 1;
