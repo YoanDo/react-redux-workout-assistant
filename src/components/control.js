@@ -5,7 +5,7 @@ import { update_value } from '../actions/indexAction';
 import { FormattedMessage } from 'react-intl';
 
 
-class Controller extends Component {
+class Control extends Component {
   constructor(props) {
     super(props);
     const {
@@ -39,7 +39,7 @@ class Controller extends Component {
     const label = this.label;
     return (
       <div className="domain">
-        <h1 className="">{label}</h1>
+        <h1 className="" onClick={this.decreaseValue}>{label}</h1>
         <p><FormattedMessage id={label} /></p>
         <div className="flex-row controller">
           <div className="ctrl-button" onClick={this.decreaseValue}>-</div>
@@ -61,4 +61,4 @@ export default connect(
   dispatch => ({
     update_value: bindActionCreators(update_value, dispatch),
   }),
-)(Controller);
+)(Control);

@@ -4,12 +4,12 @@
 
 // mesure
 $board-height: 100vh;
-$board-width: 80vw;
-$block-width: 16vw;
+$board-width: 72vw;
+$block-width: 15vw;
 $display-height: 100px;
 $button-width: $board-width / 4;
-// $button-height: round(($board-height - $display-height) / 5);
-// color
+
+// color to clean 🚨
 $purple: #25237E;
 $pink: #FFDECB;
 // test
@@ -31,6 +31,7 @@ $small-font-size: 16px;
 html,
 body{
     height: 100%;
+    width: 100%;
     background-color: $charcoil;
     display: flex;
     justify-content: center;
@@ -63,7 +64,6 @@ h1{
 p{
   color: white;
   font-size: 16px;
-  // margin-bottom: 40px;
 }
 
 #main {
@@ -85,8 +85,6 @@ p{
   justify-content: center;
 }
 
-
-
 /**************
    Controller
 ***************/
@@ -97,7 +95,8 @@ p{
 .domain{
   display: flex;
   flex-direction: column;
-  min-height: 30vh;
+  min-height: 45vh;
+  height: 100%;
   justify-content: space-between;
   width: $block-width;
   margin-bottom: 6vh;
@@ -156,7 +155,6 @@ p{
   position: absolute;
   width: 100vw;
   height: 6vh;
-  // background-color: red;
   .progression{
     height: 100%;
     width: 100%;
@@ -174,18 +172,18 @@ p{
 }
 
 footer {
-    color: #43246a;
+    color: white;
     position: relative;
     bottom: 0;
-    left: 0;
     right: 0;
     font-size: 2rem;
-    margin-top: 25px;
+    position: absolute;
+    padding: 20px;
 }
 
 footer a {
     margin: 15px;
-    color: #43246a;
+    color: white;
     text-decoration: none;
 }
 
