@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "prod": "NODE_ENV=production node server.js",
+    "heroku-prebuild": "npm install --dev",
     "dev": "webpack-dev-server",
     "lint": "eslint src --ext .js,.jsx --cache --fix-dry-run "
   },
