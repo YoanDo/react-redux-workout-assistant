@@ -12,9 +12,9 @@
     "url": "github.com/yoanDo"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
     "dev": "webpack-dev-server",
-    "prod": "webpack -p",
     "lint": "eslint src --ext .js,.jsx --cache --fix-dry-run "
   },
   "keywords": [],
